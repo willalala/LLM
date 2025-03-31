@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import {
+  InfoCircleOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import { Col, Divider, Row, Button, Layout, Menu, theme, Flex } from "antd";
+import {
+  Col,
+  Divider,
+  Row,
+  Button,
+  Layout,
+  Menu,
+  theme,
+  Flex,
+  Popover,
+} from "antd";
 const { Header, Sider, Content } = Layout;
 
 import HomePage from "./homepage";
@@ -16,6 +27,15 @@ const Page = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const [open, setOpen] = useState(false);
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (visible) => {
+    setOpen(visible);
+  };
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
@@ -82,9 +102,48 @@ const Page = () => {
               width: 64,
               height: 64,
               //位于左边
+              color: "white",
               float: "left",
             }}
           />
+          <Popover
+            content={
+              <div>
+                <div>
+                  <span>Version：</span>
+                  <span>β</span>
+                </div>
+                <div>
+                  <span>Release Date：</span>
+                  <span>2025/3/31</span>
+                </div>
+                <div>
+                  <span>Author：</span>
+                  <span>Willa</span>
+                </div>
+                {/* <a onClick={hide}>Close</a> */}
+              </div>
+            }
+            title="Information"
+            trigger="click"
+            open={open}
+            onOpenChange={handleOpenChange}
+          >
+            <Button
+              type="text"
+              icon={<InfoCircleOutlined />}
+              // onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: "16px",
+                width: 64,
+                height: 64,
+                //位于左边
+                color: "white",
+                float: "right",
+                marginRight: 16,
+              }}
+            />
+          </Popover>
         </Header>
         <Content
           style={{

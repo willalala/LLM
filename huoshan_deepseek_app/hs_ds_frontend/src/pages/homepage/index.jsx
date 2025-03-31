@@ -5,6 +5,10 @@ import {
   TeamOutlined,
   TagsOutlined,
   LogoutOutlined,
+  WechatOutlined,
+  MailOutlined,
+  PhoneFilled,
+  GithubOutlined,
 } from "@ant-design/icons";
 import {
   Col,
@@ -17,6 +21,7 @@ import {
   Flex,
   Avatar,
   Image,
+  Tooltip,
 } from "antd";
 import p1 from "../../assets/images/intro1.jpg";
 import p2 from "../../assets/images/intro2.jpg";
@@ -74,7 +79,7 @@ const HomePage = () => {
                     size={32}
                     icon={<UserOutlined />}
                   />
-                  Willa
+                  张三
                 </div>
                 <div
                   style={{
@@ -178,7 +183,40 @@ const HomePage = () => {
               <Image width="50%" style={{ padding: 4 }} src={p6} />
               {/* </div> */}
             </div>
-            <div>111111111</div>
+            <div style={{ fontSize: 16, marginTop: 4 }}>智能飞行教员台</div>
+            <div
+              style={{
+                fontSize: 14,
+                margin: 8,
+                textAlign: "justify",
+                color: "#91AEB0",
+              }}
+            >
+              该软件是一款基于人工智能的虚拟教练系统，能够实时监测学员的操作，动态调整训练难度，并提供语音或文字反馈。它通过分析飞行参数（如姿态、航迹、程序执行）自动生成评估报告，模拟真实教员的纠错和指导，同时支持个性化训练计划，如针对着陆技巧或紧急程序的专项训练。高级AI教员台还能结合机器学习，识别学员的常见错误模式，并自适应生成针对性练习，大幅提升训练效率。
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: 8,
+                textAlign: "center",
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontSize: "20px",
+              }}
+            >
+              <Tooltip title="19117882988">
+                <WechatOutlined style={{ margin: 8 }} />
+              </Tooltip>
+              <Tooltip title="19117882988@163.com">
+                <MailOutlined style={{ margin: 8 }} />
+              </Tooltip>
+              <Tooltip title="19117882988">
+                <PhoneFilled style={{ margin: 8 }} />
+              </Tooltip>
+              <Tooltip title="https://github.com/aiios/xxx.git">
+                <GithubOutlined style={{ margin: 8 }} />
+              </Tooltip>
+            </div>
           </div>
         </Col>
       </Row>
